@@ -93,9 +93,6 @@ class Board:
         self.deadtext = self.DiagFont.render("XXXX", False,  self.deadC)
         self.netstart = [self.optionplacement[0][0] - 400, 100]
 
-        #scoretracker
-        self.socket = net.InitializeSender()
-
         #pause
         self.pause = False
         pausefont = pygame.font.SysFont('', 50)
@@ -129,13 +126,6 @@ class Board:
 
             #performance
             self.HideSome()
-
-            #scoretracker
-            data = self.cars[0].Nn.score
-            net.Send(data, self.socket)
-        else:
-            #scoretracker
-            net.Send(False, self.socket)
 
     def Show(self):
         self.ShowOptions()
